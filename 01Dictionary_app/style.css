@@ -57,3 +57,57 @@ background-color: #ad76fb52;
     background-color: #ae9cff;
     color: white;
 }
+
+.result {
+    position: relative;
+}
+
+.result h3{
+    font-size: 30px;
+    color: #1f194c;
+}
+
+.result .word{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.result button{
+    background-color: transparent;
+    color: #ae9cff;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all .3s ease;
+
+}
+
+.result .details{
+    display: flex;
+    gap: 10px;
+    color: #b3b6d4;
+    margin: 5px 0 20px 0; 
+    font-size: 14px;
+
+}
+
+.wordMeaning{
+    color: #575a7b;
+}
+
+
+.wordExample{
+    color: #575a7b;
+    font-style: italic;
+    border-left: 5px solid #ae9cff;
+    padding-left: 20px;
+    margin-top: 30px;
+}
+
+.err{
+    color: rgba(248, 82, 82, 0.486);
+    margin-top: 80px;
+    text-align: center;
+}
