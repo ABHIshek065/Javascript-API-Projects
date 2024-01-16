@@ -1,20 +1,18 @@
-const url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
+const result = document.getElementById("result");
+const sound = document.getElementById("sound");
 
-const result = document.getElementById("result")
-const sound = document.getElementById("sound")
-
-
-const btn = document.getElementById("Searchbtn")
+const btn = document.getElementById("Searchbtn");
 
 btn.addEventListener("click", () => {
-    let inpWord = document.getElementById("inp-word").value;
+  let inpWord = document.getElementById("inp-word").value;
 
-    fetch(`${url}${inpWord}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            result.innerHTML = `
+  fetch(`${url}${inpWord}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      result.innerHTML = `
             <div class="word">
             <h3>${inpWord}</h3>
             <button onclick="playSound()">
@@ -31,18 +29,17 @@ btn.addEventListener("click", () => {
         </p>
         <p class="wordExample">
         ${data[0].meanings[0].definitions[0].example || ""}
-        </p>`
+        </p>`;
 
-            sound.setAttribute("src", `${data[0].phonetics[0].audio}`)
-            console.log(sound);
-        })
+      sound.setAttribute("src", `${data[0].phonetics[0].audio}`);
+      console.log(sound);
+    })
 
-        .catch(() => {
-            result.innerHTML = `<h3 class="err"> Word Not Found</h3>`
-        })
-
-})
+    .catch(() => {
+      result.innerHTML = `<h3 class="err"> Word Not Found</h3>`;
+    });
+});
 
 function playSound() {
-    sound.play()
+  sound.play();
 }
